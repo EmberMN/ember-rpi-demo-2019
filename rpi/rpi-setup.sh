@@ -26,19 +26,40 @@ if [ $FILE_HAS_WRONG_EOL != 0 ]; then #
 fi #
 
 
-./1-install-packages.sh || echo "Failed to install packages" && exit 1
+./1-install-packages.sh || {
+  echo "Failed to install packages"
+  exit 1
+}
 
-./2-set-up-node.sh || echo "Failed to set up node.js" && exit 2
+./2-set-up-node.sh || {
+  echo "Failed to set up node.js"
+  exit 2
+}
 
-./3-login-and-remote-access.sh || echo "Failed to setup login & remote access" && exit 3
+./3-login-and-remote-access.sh || {
+  echo "Failed to setup login & remote access"
+  exit 3
+ }
 
-./4-network.sh || echo "Failed to configure network settings" && exit 4
+./4-network.sh || {
+  echo "Failed to configure network settings"
+  exit 4
+}
 
-./5-firewall-rules.sh || echo "Failed to configure firewall rules" && exit 5
+./5-firewall-rules.sh || {
+  echo "Failed to configure firewall rules"
+  exit 5
+}
 
-./6-nginx.sh || echo "Failed to configure nginx (web server)" && exit 6
+./6-nginx.sh || {
+  echo "Failed to configure nginx (web server)"
+  exit 6
+}
 
-./7-run-with-getty.sh || echo "Failed to configure our programs to run via getty" && exit 7
+./7-run-with-getty.sh || {
+  echo "Failed to configure our programs to run via getty"
+  exit 7
+}
 
 echo "Updating locate database (this may take a little while)"
 sudo updatedb
