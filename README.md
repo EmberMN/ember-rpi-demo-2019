@@ -14,4 +14,5 @@ It should be noted that the design choices in this example are not the only--or 
 * [`back-end/`](./back-end/) Source code for Node.js back-end
 * [`front-end/`](./front-end/) Source code for Ember.js front-end
 * [`rpi/`](./rpi) Content related to setup of the RPi
-* [`slides/`](./slides/) Presentation (made with [reveal.js](https://github.com/hakimel/reveal.js))
+* ~~[`slides/`](./slides/) Presentation (made with [reveal.js](https://github.com/hakimel/reveal.js))~~ (sorry, ran out of time)
+

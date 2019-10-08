@@ -1,3 +1,6 @@
 [submodule "slides"]
 	path = slides
 	url = git@github.com:EmberMN/ember-rpi-demo-2019-presentation.git
+[submodule "back-end"]
+	path = back-end
+	url = git@github.com:EmberMN/ember-rpi-demo-2019-back-end.git
