@@ -3,7 +3,8 @@
 echo "--- Node.js setup script started ---"
 
 # Install Node Version Manager (nvm) via GitHub
-NVM_DIR=/usr/local/opt/nvm
+export NVM_DIR=/usr/local/opt/nvm
+mkdir -p $NVM_DIR
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 
 # Set up nvm in current session (to avoid needing to log out/in again)
