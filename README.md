@@ -9,8 +9,6 @@ It should be noted that the design choices in this example are not the only--or 
 
 ## File structure
 
-(*TODO*: add files / submodules for these)
-
 * [`back-end/`](./back-end/) Source code for Node.js back-end
 * [`front-end/`](./front-end/) Source code for Ember.js front-end
 * [`rpi/`](./rpi) Content related to setup of the RPi
