@@ -4,6 +4,22 @@ echo "--- getty setup script started ---"
 
 # Note: systemd seems to care a lot about names, paths, links, etc.
 # Run script on alternate tty and switch to that tty on boot via rc.local (assumes no X session running)
+# TODO:
+PROGRAM_PATH=/usr/local/opt/back-end
+mkdir -p $PROGRAM_PATH
+PROGRAM=$PROGRAM_PATH/run.sh
+
+if [ ! -f $PROGRAM ]; then
+  cat <<- EOF > $PROGRAM
+#!/bin/bash
+
+echo "TODO: Put something here to run"
+sleep 15m
+EOF
+  chmod +x $PROGRAM
+fi
+
+
 cat <<- EOF > /lib/systemd/system/getty@tty2.service
 # Custom service to launch our program
 [Unit]
@@ -24,7 +40,7 @@ ConditionPathExists=/dev/tty0
 
 [Service]
 # the VT is cleared by TTYVTDisallocate
-ExecStart=-/sbin/agetty --autologin root --login-program /usr/local/back-end/run.sh --login-options ""  --noclear %I $TERM
+ExecStart=-/sbin/agetty --autologin root --login-program $PROGRAM --login-options ""  --noclear %I $TERM
 Type=idle
 Restart=always
 RestartSec=1
