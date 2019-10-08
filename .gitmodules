@@ -4,3 +4,6 @@
 [submodule "back-end"]
 	path = back-end
 	url = git@github.com:EmberMN/ember-rpi-demo-2019-back-end.git
+[submodule "front-end"]
+	path = front-end
+	url = git@github.com:EmberMN/ember-rpi-demo-2019-front-end.git
