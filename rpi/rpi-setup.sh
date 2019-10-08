@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script should be run as root to prepare a Raspberry Pi (4 B) for use with Kanomax FMT systems.
+# This script should be run as root to prepare a Raspberry Pi (4 B)
 # Before running it, the RPi configuration tool should be used to set locale (timezone, language, keyboard, etc.),
 # hostname, and the following options:
 #   Boot Options ->

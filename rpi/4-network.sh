@@ -109,7 +109,7 @@ mv dnsmasq.service.tmp /lib/systemd/system/dnsmasq.service
 # hostapd.conf shouldn't exist yet (though the /etc/hostapd dir should), but if it does we'll move it before writing this new one
 mv --backup=numbered /etc/hostapd/hostapd.conf /etc/hostapd/hostapd.conf.original 2> /dev/null
 # we're going to write to a "template" file that we'll use as input to a program that outputs the actual hostapd.conf,
-# replacing `__RPI_WIFI_SSID__` with the actual SSID to use (e.g. "Kanomax-STPC-<last 3 octets of eth0 MAC address>")
+# replacing `__RPI_WIFI_SSID__` with the actual SSID to use
 cat <<- EOF > /etc/hostapd/hostapd.conf.template
 # This is the name of the WiFi interface we configured above
 interface=wlan0
@@ -247,8 +247,8 @@ HOSTAPD_CONF_FILE=/etc/hostapd/hostapd.conf
 SSID_FILE=/etc/hostapd/custom_ssid
 
 if [[ ! -f \$SSID_FILE && ! -f \$HOSTAPD_CONF_FILE ]]; then
-    LAST3MAC=$(ip addr show eth0|grep link/ether|awk '{print $2}'|awk '{split($0,mac,":"); print mac[4] mac[5] mac[6]}')
-    DEFAULT_SSID="Kanomax-STPC-\$LAST3MAC"
+    LAST3MAC=\$(ip addr show eth0|grep link/ether|awk '{print $2}'|awk '{split($0,mac,":"); print mac[4] mac[5] mac[6]}')
+    DEFAULT_SSID="Ember-RPi-\$LAST3MAC"
     echo \$DEFAULT_SSID > \$SSID_FILE
     /etc/cron.minutely/apply_custom_ssid
 fi
